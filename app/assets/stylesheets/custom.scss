@@ -1,0 +1,15 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.jumbotron{
+  height: 570px;
+}
+
+nav .container-fluid a img{
+  position: relative;
+  top: -10px;
+}
+
+ul li.dropdown a{
+  display:none;
+}
