@@ -1,0 +1,25 @@
+<div class="container">
+  <h2><%= t "edit.profile" %></h2>
+  <hr>
+  <div class="row well well-lg edit">
+    <div class="col-md-3">
+      <div class="text-center">
+        <%= gravatar_for @user %>
+        <br>
+        <form action="http://gravatar.com" target="_blank">
+          <input type="submit" value="Change avatar" class="btn btn-primary"/>
+        </form>
+      </div>
+    </div>
+    <div class="col-md-9 personal-info">
+      <div class="alert alert-info alert-dismissable">
+        <a class="panel-close close" data-dismiss="alert">×</a>
+        <i class="fa fa-coffee"></i>
+        <%= t "edit.edit" %>
+      </div>
+      <h3><%= t "edit.personal" %></h3>
+      <%= render "users/editform" %>
+    </div>
+  </div>
+</div>
+<hr>

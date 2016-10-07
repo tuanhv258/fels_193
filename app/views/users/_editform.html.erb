@@ -1,0 +1,14 @@
+<%= form_for @user do |f| %>
+  <%=  render "shared/error_messages" %>
+  <%= f.label :full_name %>
+  <%= f.text_field :fullname, class: "form-control" %>
+  <%= f.label :email %>
+  <%= f.email_field :email, class: "form-control" %>
+  <input type="checkbox" name="change" id="change" onClick="showPassword()"><%= t "edit.show" %>
+  <br><br>
+  <%= f.label :password, class: "hide-tag" %>
+  <%= f.password_field :password, class: "form-control hide-tag" %>
+  <%= f.label :password_confirmation, "Confirmation", class: "hide-tag"%>
+  <%= f.password_field :password_confirmation, class: "form-control hide-tag" %>
+  <%= f.submit t("edit.btn") , class: "btn btn-success img-center" %>
+<% end %>

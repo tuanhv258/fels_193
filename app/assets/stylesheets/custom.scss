@@ -1,10 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.jumbotron{
-  height: 570px;
-}
-
 nav .container-fluid a img{
   position: relative;
   top: -10px;
@@ -49,7 +45,9 @@ input, textarea, select, .uneditable-input {
   background: rgba(255, 255, 255, 0.8);
   box-shadow: rgba(0, 0, 0, 0.3) 20px 20px 20px;
 }
-
+.edit{
+  box-shadow: rgba(0, 0, 0, 0.3) 20px 20px 20px;
+}
 #error_explanation {
   color: red;
   ul {
@@ -62,4 +60,28 @@ input, textarea, select, .uneditable-input {
   .form-control {
     color: $state-danger-text;
   }
+}
+
+.img-center{
+  margin: 0 auto;
+  display: block;
+}
+
+.profile {
+  background-color: #9c27b0;
+  color: white;
+}
+
+.activity{
+  background-color: #4CAF50;
+  color: white;
+}
+
+.follow{
+  background-color: #607d8b;
+  color: white;
+}
+
+.hide-tag{
+  display:none;
 }
