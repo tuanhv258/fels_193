@@ -13,6 +13,7 @@ en:
       accountitem: "Account"
       profileitem: "Profile"
       signoutitem: "Sign Out"
+      showlistuser: "Show List Users"
     home:
       header: "Framgia E-Learning System"
       welcome: "Online Tuition, specially tailored to you,
@@ -50,6 +51,9 @@ en:
       destroysuccess: "User deleted"
       updatesuccess: "Edit profile sucessful"
       updatefail: "Fail! Please try again"
+    applicationcontroller:
+      usernull: "User null"
+      please: "Please Login"
   user:
     hello: "Welcome to the Framgia E - Learning System"
     danger: "Please try sign up again"
