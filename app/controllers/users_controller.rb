@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  before_action :load_user, only: [:show, :edit, :update]
+
   def index
     @users = User.paginate(page: params[:page],
       per_page: Settings.categories_per_page).order(created_at: "desc")
@@ -21,25 +23,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by id: params[:id]
     unless @user
       flash[:danger] = t "user.nil"
       redirect_to root_path
-    end
-  end
-
-  def edit
-    load_user
-  end
-
-  def update
-    load_user
-    if @user.update_attributes user_params
-      flash[:success] = t "page.usercontroller.updatesuccess"
-      redirect_to @user
-    else
-      flash[:danger] = t "page.usercontroller.danger"
-      render :edit
     end
   end
 
@@ -47,6 +33,17 @@ class UsersController < ApplicationController
     User.find_by(params[:id]).destroy
     flash[:success] = t "page.usercontroller.destroysuccess"
     redirect_to users_url
+  end
+
+  def update
+    @user.update_attributes user_params
+    if @user.save
+      flash[:success] = t "page.usercontroller.updatesuccess"
+      redirect_to :back
+    else
+      flash[:danger] = t "page.usercontroller.updatefail"
+      render :edit
+    end
   end
 
   private
@@ -58,4 +55,11 @@ class UsersController < ApplicationController
     redirect_to root_url unless current_user.admin?
   end
 
+  def load_user
+    @user = User.find_by id: params[:id]
+    unless @user
+      flash[:danger] = t "user.nil"
+      render file: "public/404.html", status: :not_found, layout: true
+    end
+  end
 end

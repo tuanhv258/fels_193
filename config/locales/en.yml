@@ -48,6 +48,8 @@ en:
       updatesuccess: "Profile updated"
       loggeddanger: "Please log in."
       destroysuccess: "User deleted"
+      updatesuccess: "Edit profile sucessful"
+      updatefail: "Fail! Please try again"
   user:
     hello: "Welcome to the Framgia E - Learning System"
     danger: "Please try sign up again"
@@ -57,9 +59,14 @@ en:
     alert: "Alert! "
     title: "Application"
   error:
-    contain: "The form contains"
+    contain: "The form contains "
     error: "error"
   signup:
     signup: "Sign up"
-    create: "Create my account"
-
+    create: "Create"
+  edit:
+    btn: "Update"
+    show: "Change password"
+    edit: "Edit your information, please click check-box if you want to change password"
+    personal: "Personal info"
+    profile: "Edit Profile"

@@ -1,5 +1,41 @@
-<body style="background-color:white">
-
-  <%= @user.fullname %>, <%= @user.email %>
-
-</body>
+<div class="container-fluid">
+  <div class="col-md-4">
+    <div class="row well well-lg profile">
+      <h3 class="text-center">Profile</h3>
+      <br>
+      <div>
+        <%= gravatar_for @user %>
+      </div>
+      <br>
+      <div>
+        <h2 class="text-center"><%= @user.fullname %></h2>
+        <p class="text-center"><%= @user.email %></p>
+      </div>
+      <div>
+        <button type="button" class="btn img-center"><%= link_to "EDIT", edit_user_path(params[:id]) %></button>
+      </div>
+    </div>
+    <div class="row well well-lg follow">
+      <h3 class="text-center">Follow</h3>
+      <br>
+    </div>
+  </div>
+  <div class="col-md-7 col-md-offset-1">
+    <div class="row well well-lg activity">
+      <h3 class="text-left">Activity</h3>
+      <br>
+      <table class="table table-hover active">
+        <tr>
+          <td>a</td>
+          <td>b</td>
+          <td>c</td>
+        </tr>
+        <tr>
+          <td>a</td>
+          <td>b</td>
+          <td>c</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
