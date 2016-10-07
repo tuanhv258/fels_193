@@ -59,7 +59,7 @@ class UsersController < ApplicationController
     @user = User.find_by id: params[:id]
     unless @user
       flash[:danger] = t "user.nil"
-      redirect_to root_path
+      render file: "public/404.html", status: :not_found, layout: true
     end
   end
 end
