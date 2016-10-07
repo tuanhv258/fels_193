@@ -33,6 +33,21 @@ en:
         prepare for and record your 1-2-1 tutorials with your teacher
         and access a wealth of further learning resources to supplement
         and extend your in class learning."
+    session:
+      new:
+        newuser: "New User?"
+        signupnow: "Sign up now!"
+        signin: "Sign In"
+        remember: "Remember me"
+    sessioncontroller:
+      success: "Welcome"
+      danger: "Please check email or password again!"
+    usercontroller:
+      success: "Welcome to the E-Learning!"
+      danger: "Can't Edit"
+      updatesuccess: "Profile updated"
+      loggeddanger: "Please log in."
+      destroysuccess: "User deleted"
   user:
     hello: "Welcome to the Framgia E - Learning System"
     danger: "Please try sign up again"
@@ -47,3 +62,4 @@ en:
   signup:
     signup: "Sign up"
     create: "Create my account"
+

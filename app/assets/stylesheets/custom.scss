@@ -11,7 +11,29 @@ nav .container-fluid a img{
 }
 
 ul li.dropdown a{
-  display:none;
+
+}
+
+#field1{
+  margin-bottom: 10px;
+}
+
+#field2{
+  margin-bottom: 10px;
+}
+
+.checkbox {
+  margin-top: -10px;
+  margin-bottom: 10px;
+  span {
+    margin-left: 20px;
+    font-weight: normal;
+  }
+}
+
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
 }
 
 input, textarea, select, .uneditable-input {

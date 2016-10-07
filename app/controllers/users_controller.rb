@@ -1,4 +1,10 @@
 class UsersController < ApplicationController
+
+  def index
+    @users = User.paginate(page: params[:page],
+      per_page: Settings.categories_per_page).order(created_at: "desc")
+  end
+
   def new
     @user = User.new
   end
@@ -22,8 +28,34 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    load_user
+  end
+
+  def update
+    load_user
+    if @user.update_attributes user_params
+      flash[:success] = t "page.usercontroller.updatesuccess"
+      redirect_to @user
+    else
+      flash[:danger] = t "page.usercontroller.danger"
+      render :edit
+    end
+  end
+
+  def destroy
+    User.find_by(params[:id]).destroy
+    flash[:success] = t "page.usercontroller.destroysuccess"
+    redirect_to users_url
+  end
+
   private
   def user_params
     params.require(:user).permit :fullname, :email, :password, :password_confirmation
   end
+
+  def admin_user
+    redirect_to root_url unless current_user.admin?
+  end
+
 end

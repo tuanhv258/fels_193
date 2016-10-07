@@ -6,4 +6,7 @@ Rails.application.routes.draw do
   get "/contact", to: "static_pages#contact"
   post "/signup",  to: "users#create"
   resources :users, :only => ["new", "create", "new", "show", "index"]
+  get "/login", to: "sessions#new"
+  post "/login", to: "sessions#create"
+  delete "/logout", to: "sessions#destroy"
 end
