@@ -74,3 +74,13 @@ en:
     edit: "Edit your information, please click check-box if you want to change password"
     personal: "Personal info"
     profile: "Edit Profile"
+  category:
+    category: "Category"
+    index: "Index"
+    name: "Name"
+    action: "Action"
+    detail: "Detail"
+    close: "close"
+    word: "Word"
+    categoryID: "Category ID"
+    word: "Word"

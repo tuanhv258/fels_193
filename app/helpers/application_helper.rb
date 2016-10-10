@@ -21,4 +21,7 @@ module ApplicationHelper
       class: "gravatar img-circle img-center")
   end
 
+  def index_plus index, per_page
+    (params[:page].to_i - 1) * per_page + 1 +index
+  end
 end

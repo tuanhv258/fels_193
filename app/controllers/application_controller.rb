@@ -25,4 +25,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def check_logged
+    unless logged_in?
+      redirect_to root_path
+    end
+  end
+
 end
