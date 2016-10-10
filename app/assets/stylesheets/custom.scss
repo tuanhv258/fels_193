@@ -1,15 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-nav .container-fluid a img{
-  position: relative;
-  top: -10px;
-}
-
-ul li.dropdown a{
-
-}
-
 #field1{
   margin-bottom: 10px;
 }
@@ -84,4 +75,9 @@ input, textarea, select, .uneditable-input {
 
 .hide-tag{
   display:none;
+}
+
+div input#createcate{
+  margin-top: 20px;
+  margin-bottom: 10px;
 }

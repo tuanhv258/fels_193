@@ -14,6 +14,9 @@ en:
       profileitem: "Profile"
       signoutitem: "Sign Out"
       showlistuser: "Show List Users"
+      categoryitem: "Categories"
+      showcategories: "Categories"
+      createcategory: "Create Category"
     home:
       header: "Framgia E-Learning System"
       welcome: "Online Tuition, specially tailored to you,
@@ -55,6 +58,9 @@ en:
     applicationcontroller:
       usernull: "User null"
       please: "Please Login"
+    categoriescontroller:
+      createsuccess: "Success"
+      createdanger: "Wrong!"
     view:
       admin:
         id: "ID"
@@ -62,6 +68,8 @@ en:
         option: "Options"
         confirm: "You sure?"
         delete: "Delete"
+      category:
+        create: "Create Category"
   user:
     hello: "Welcome to the Framgia E - Learning System"
     danger: "Please try sign up again"
@@ -92,3 +100,4 @@ en:
     word: "Word"
     categoryID: "Category ID"
     word: "Word"
+    createcate: "Create Category"
