@@ -1,0 +1,53 @@
+<div class="table-responsive">
+  <h2><%= t "category.category" %></h2>
+  <br>
+  <table class="table table-striped edit">
+    <thead>
+    <tr>
+      <th><%= t "category.index" %></th>
+      <th><%= t "category.name" %></th>
+      <th><%= t "category.detail" %></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @categories.each_with_index do |category, index| %>
+      <tr>
+        <td><% if params[:page] ||= 1 %>
+          <%= index_plus index, Settings.categories_per_page %>
+          <% end %>
+        </td>
+        <td><%= category.title %></td>
+        <td><button type="button" class="btn btn-info btn-md button-detail" data-toggle="modal"
+          data-target="#myModal_<%= category.id %>"><%= t "category.detail" %></button></td>
+      </tr>
+      <div class="modal fade" id="myModal_<%= category.id %>" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title"><%= t "category.detail" %></h4>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <p class="text-left"><%= t "category.id" %>: <%= category.id %></p>
+              </div>
+              <div class="row"><p class="text-left">
+                <p class="text-left"><%= t "category.name" %>: <%= category.title %></p>
+              </div>
+              <div class="row">
+                <p class="text-left"><%= t "category.detail" %>: <%= category.detail %></p>
+              </div>
+              <br>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">
+                <%= t "category.close" %></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    </tbody>
+  </table>
+  <%= will_paginate %>
+</div>
