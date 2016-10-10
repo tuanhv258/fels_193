@@ -1,12 +1,12 @@
 <div class="table-responsive">
   <h2><%= t "category.word" %></h2>
   <br>
-  <table class="table table-striped">
+  <table class="table table-striped edit">
     <thead>
     <tr>
       <th><%= t "category.index" %></th>
       <th><%= t "category.name" %></th>
-      <th><%= t "category.categoryID" %></th>
+      <th><%= t "category.categoryName" %></th>
       <th><%= t "category.action" %></th>
     </tr>
     </thead>
@@ -18,7 +18,7 @@
             <% end %>
           </td>
           <td><%= word.name %></td>
-          <td><%= word.category_id %></td>
+          <td><%= word.category.title %></td>
           <td><button type="button" class="btn btn-info btn-md button-detail" data-toggle="modal"
             data-target="#myModal_<%= word.id %>"><%= t "category.detail" %></button></td>
         </tr>
@@ -37,7 +37,7 @@
                   <p><%= t "category.name" %>: <%= word.name %></p>
                 </div>
                 <div class="row text-left">
-                  <p><%= t "category.categoryID" %>:<%= word.category_id %></p>
+                  <p><%= t "category.categoryName" %>:<%= word.category.title %></p>
                 </div>
                 <br>
               </div>
