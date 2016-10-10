@@ -9,4 +9,7 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
   post "/signup", to: "users#create"
   resources :users
+  namespace :admin do
+    resources :users, only: [:index]
+  end
 end
