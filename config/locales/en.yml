@@ -51,9 +51,17 @@ en:
       destroysuccess: "User deleted"
       updatesuccess: "Edit profile sucessful"
       updatefail: "Fail! Please try again"
+      deletedestroy: "User deleted"
     applicationcontroller:
       usernull: "User null"
       please: "Please Login"
+    view:
+      admin:
+        id: "ID"
+        name: "Name"
+        option: "Options"
+        confirm: "You sure?"
+        delete: "Delete"
   user:
     hello: "Welcome to the Framgia E - Learning System"
     danger: "Please try sign up again"

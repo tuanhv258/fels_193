@@ -1,3 +1,10 @@
 <%= will_paginate %>
-  <%= render @users %>
+  <table class="table table-bordered">
+    <tr>
+      <th><%= t "page.view.admin.id" %></th>
+      <th><%= t "page.view.admin.name" %></th>
+      <th><%= t "page.view.admin.option" %></th>
+    </tr>
+    <%= render @users %>
+  </table>
 <%= will_paginate %>
