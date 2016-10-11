@@ -5,6 +5,8 @@ class CreateWordAnswers < ActiveRecord::Migration
       t.boolean :is_correct
       t.integer :word_id
       t.timestamps null: false
+
+      accepts_nested_attributes_for :
     end
   end
 end
