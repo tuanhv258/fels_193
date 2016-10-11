@@ -4,10 +4,10 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
 
   def load_user
-    @user = User.find_by params[:id]
-    if @user.nil?
-      flash[:danger] = t "page.applicationcontroller.usernull"
-      redirect_to root_path
+    @user = User.find_by id: params[:id]
+    unless @user
+      flash[:danger] = t "user.nil"
+      render file: "public/404.html", status: :not_found, layout: true
     end
   end
 

@@ -12,6 +12,7 @@
       <th><%= t "category.index" %></th>
       <th><%= t "category.name" %></th>
       <th><%= t "category.detail" %></th>
+      <th><%= t "category.action" %></th>
     </tr>
     </thead>
     <tbody>
@@ -22,15 +23,31 @@
           <% end %>
         </td>
         <td><%= category.title %></td>
-        <td><button type="button" class="btn btn-info btn-md button-detail" data-toggle="modal"
-          data-target="#myModal_<%= category.id %>"><%= t "category.detail" %></button></td>
+        <td><%= category.detail %></td>
+        <td>
+          <% unless @current_user.is_admin? %>
+            <button type="button" class="btn btn-success btn-md button-detail glyphicon
+            glyphicon-info-sign"data-toggle="modal" data-target="#myModal_<%= category.id %>">
+            </button>
+          <% else %>
+            <button type="button" class="btn btn-success btn-md button-detail glyphicon
+              glyphicon-info-sign" data-toggle="modal" data-target="#myModal_<%= category.id %>">
+            </button>
+            <button type="button" class="btn btn-info btn-md button-detail glyphicon
+              glyphicon-pencil" data-toggle="modal" data-target="#myModal_update_<%= category.id %>">
+            </button>
+            <button type="button" class="btn btn-danger btn-md button-detail glyphicon
+              glyphicon-remove" data-toggle="modal" data-target="#myModal_delete_<%= category.id %>">
+            </button>
+          <% end %>
+        </td>
       </tr>
       <div class="modal fade" id="myModal_<%= category.id %>" role="dialog">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <h4 class="modal-title"><%= t "category.detail" %></h4>
+              <h4 class="modal-title"><strong><%= t "category.detail" %></strong></h4>
             </div>
             <div class="modal-body">
               <div class="row">
@@ -47,6 +64,51 @@
             <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal">
                 <%= t "category.close" %></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="myModal_update_<%= category.id %>" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title"><strong><%= t "category.update" %></strong></h4>
+            </div>
+            <div class="modal-body">
+              <%= form_for category, method: :put do |f| %>
+                  <%= f.label :title %>
+                  <%= f.text_field :title, class: "form-control", value: category.title %>
+                  <%= f.label :detail %>
+                  <%= f.text_field :detail, class: "form-control", value: category.detail %>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">
+                <%= t "category.close" %>
+              </button>
+              <%= f.submit t("category.update"), class: "btn btn-success" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="myModal_delete_<%= category.id %>" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title"><strong><%= t "category.delete" %></strong></h4>
+            </div>
+            <div class="modal-body">
+              <p><%= t "category.areyou" %><strong><%= t "category.deletedowncase" %>
+                </strong><%= t "category.record" %>
+              </p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">
+                <%= t "category.close" %></button>
+              <%= link_to t("category.delete"), category_path(category.id),
+                method: :delete , class: "btn btn-danger" %>
             </div>
           </div>
         </div>
