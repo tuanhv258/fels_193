@@ -15,6 +15,12 @@
         <input type="number" class="form-control" id="number" min="0" step="1">
       </div>
     </div>
+    <div class="attachments">
+      <%= f.fields_for :attachments do |attachment_form| %>
+          <%= render 'answer_field', :f => attachment_form %>
+      <% end %>
+    </div>
+    <%= link_to_add_fields "Attach a file or an image", f, :attachments %><br />
     <div class="modal-footer">
     <%= link_to "Create Answer", "#", class: "btn btn-success" %>
     <%= f.submit t("signup.create") , class: "btn btn-success disabled"%>

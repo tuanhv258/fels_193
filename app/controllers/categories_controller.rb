@@ -2,6 +2,10 @@ class CategoriesController < ApplicationController
   before_action :load_category, only: [:edit, :update]
   before_action :check_logged
 
+  def new
+    @categories = Category.all
+    @word = Word.new
+  end
   def index
     @category = Category.new
     @categories = Category.paginate(page: params[:page],
