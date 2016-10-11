@@ -13,5 +13,5 @@ Rails.application.routes.draw do
     resources :users, only: [:index]
   end
   resources :categories
-  resources :words, only: :index
+  resources :words
 end

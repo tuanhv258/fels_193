@@ -1,0 +1,21 @@
+<%= form_for @word do |f| %>
+    <%= render "shared/error_messages", object: @word%>
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control" %>
+    <%= f.label :category_title %>
+    <br>
+    <%= f.collection_select :category_id, Category.all, :title, :title %>
+    <br>
+    <div class="row">
+      <div class="col-md-11">
+        <label for="usr">Number of Answer</label>
+      </div>
+      <div class="col-md-3">
+        <input type="number" class="form-control" id="number" min="0" step="1">
+      </div>
+    </div>
+    <div class="modal-footer">
+    <%= link_to "Create Answer", "#", class: "btn btn-success" %>
+    <%= f.submit t("signup.create") , class: "btn btn-success disabled"%>
+    </div>
+<% end %>

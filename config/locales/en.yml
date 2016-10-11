@@ -92,3 +92,6 @@ en:
     areyou: "Are you sure to "
     deletedowncase: "delete"
     record: " this record?"
+  word:
+    create: "Create new word"
+

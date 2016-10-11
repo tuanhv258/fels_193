@@ -5,4 +5,7 @@ class WordsController < ApplicationController
       per_page: Settings.categories_per_page).order(created_at: "desc")
   end
 
+  def new
+    @word = Word.new
+  end
 end
