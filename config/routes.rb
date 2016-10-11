@@ -12,6 +12,6 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users, only: [:index]
   end
-  resources :categories, only: :index
+  resources :categories, only: [:index, :new, :create]
   resources :words, only: :index
 end
