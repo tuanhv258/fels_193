@@ -20,19 +20,19 @@
         <ul class="nav navbar-nav">
           <li>
             <%= link_to t("page.header.homeitem"),
-             root_path %>
+              root_path %>
           </li>
           <li>
             <%= link_to t("page.header.aboutitem"),
-             about_path %>
+              about_path %>
           </li>
           <li>
             <%= link_to t("page.header.contactitem"),
-             contact_path %>
+              contact_path %>
           </li>
           <li>
             <%= link_to t("page.header.helpitem"),
-             help_path %>
+              help_path %>
           </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
@@ -49,24 +49,28 @@
                 <% unless @current_user.is_admin? %>
                   <li>
                     <%= link_to t("page.header.profileitem"),
-                     users_path %>
+                      user_path(@current_user) %>
                   </li>
                   <li>
                     <%= link_to t("page.header.signoutitem"),
-                     logout_path, method: :delete %>
+                      logout_path, method: :delete %>
+                  </li>
+                  <li>
+                    <%= link_to t("page.header.showlistuser"),
+                      users_path %>
                   </li>
                 <% else %>
                   <li>
                     <%= link_to t("page.header.profileitem"),
-                     users_path %>
+                      users_path %>
                   </li>
                   <li>
                     <%= link_to t("page.header.signoutitem"),
-                     logout_path, method: :delete %>
+                      logout_path, method: :delete %>
                   </li>
                   <li>
                     <%= link_to t("page.header.showlistuser"),
-                     admin_users_path %>
+                      admin_users_path %>
                   </li>
                 <% end %>
               </ul>
@@ -87,11 +91,11 @@
                 <% else %>
                   <li>
                     <%= link_to t("page.header.createcategory"),
-                     new_category_path %>
+                      new_category_path %>
                   </li>
                   <li>
                     <%= link_to t("page.header.showcategories"),
-                     categories_path %>
+                      categories_path %>
                   </li>
                 <% end %>
               </ul>
