@@ -15,10 +15,22 @@
         <button type="button" class="btn img-center"><%= link_to "EDIT", edit_user_path(params[:id]) %></button>
       </div>
     </div>
-    <div class="row well well-lg follow">
-      <h3 class="text-center">Follow</h3>
-      <br>
+    <% @user ||= current_user %>
+    <div class="stats">
+      <a href="<%= following_user_path(@user) %>">
+        <strong id="following" class="stat">
+          <%= @user.following.count %>
+        </strong>
+        following
+      </a>
+      <a href="<%= followers_user_path(@user) %>">
+        <strong id="followers" class="stat">
+          <%= @user.followers.count %>
+        </strong>
+        followers
+      </a>
     </div>
+    <%= render "follow_form" if logged_in? %>
   </div>
   <div class="col-md-7 col-md-offset-1">
     <div class="row well well-lg activity">
