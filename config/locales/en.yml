@@ -70,6 +70,16 @@ en:
         delete: "Delete"
       category:
         create: "Create Category"
+    activity_create_lesson: " had created a lesson."
+    activity_finish_lesson: " had finished a lesson."
+    activity_follow: " had followed "
+    activity_unfollow: " had unfollowed to "
+    activity: "Activity"
+    timestamp: "Time"
+    activity_title: "My Activity"
+    shared:
+      activity:
+        time_ago: "%{time} ago"
   user:
     hello: "Welcome to the Framgia E - Learning System"
     danger: "Please try sign up again"

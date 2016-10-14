@@ -32,22 +32,24 @@
     </div>
     <%= render "follow_form" if logged_in? %>
   </div>
-  <div class="col-md-7 col-md-offset-1">
-    <div class="row well well-lg activity">
-      <h3 class="text-left">Activity</h3>
-      <br>
-      <table class="table table-hover active">
+  <div class="col-md-8">
+    <h3 class="center"><%= t("page.activity_title", name: @user.fullname) %></h3>
+    <table class="table table-striped table-bordered ls-users">
+      <thead class="title_table">
         <tr>
-          <td>a</td>
-          <td>b</td>
-          <td>c</td>
+          <th><%= t "page.activity" %></th>
+          <th><%= t "page.timestamp" %></th>
         </tr>
-        <tr>
-          <td>a</td>
-          <td>b</td>
-          <td>c</td>
-        </tr>
-      </table>
+      </thead>
+      <tbody>
+        <% @activity.each do |activity| %>
+          <%= render "shared/activity", activity: activity,
+            locals: {user: @user} %>
+        <% end %>
+      </tbody>
+    </table>
+    <div class="pagingnate">
+      <%= will_paginate @activity %>
     </div>
   </div>
 </div>

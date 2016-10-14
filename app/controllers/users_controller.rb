@@ -22,10 +22,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    unless @user
-      flash[:danger] = t "user.nil"
-      redirect_to root_path
-    end
+    @activity = Activity.where(user_id: @user.id).order(created_at: :desc).
+      paginate page: params[:page]
   end
 
   def destroy
