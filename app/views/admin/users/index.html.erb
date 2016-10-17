@@ -1,10 +1,11 @@
+<h3><%= t "page.view.admin.show" %></h3>
 <%= will_paginate %>
-  <table class="table table-bordered">
-    <tr>
-      <th><%= t "page.view.admin.id" %></th>
-      <th><%= t "page.view.admin.name" %></th>
-      <th><%= t "page.view.admin.option" %></th>
-    </tr>
-    <%= render @users %>
-  </table>
+<table class="table table-striped table-bordered ">
+  <tr>
+    <th><%= t "page.view.admin.id" %></th>
+    <th><%= t "page.view.admin.name" %></th>
+    <th><%= t "category.action" %></th>
+  </tr>
+  <%= render @users %>
+</table>
 <%= will_paginate %>

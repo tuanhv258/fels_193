@@ -1,13 +1,26 @@
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for @categories do |f| %>
-      <%= f.label :title %>
-      <%= f.text_field :title, class: "form-control" %>
+<div class="container-fluid background">
+  <div class="row centered-form">
+    <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title text-center"><%= t "category.category" %></h3>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+              <%= form_for @categories do |f| %>
+                <%= f.label :title %>
+                <%= f.text_field :title, class: "form-control" %>
 
-      <%= f.label :detail %>
-      <%= f.text_field :detail, class: "form-control" %>
+                <%= f.label :detail %>
+                <%= f.text_field :detail, class: "form-control" %>
 
-      <%= f.submit t("page.view.category.create"), class: "btn btn-primary" %>
-    <% end %>
+                <%= f.submit t("page.view.category.create"), class: "btn btn-primary" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

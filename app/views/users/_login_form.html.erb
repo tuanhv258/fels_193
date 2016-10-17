@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(:session, url: login_path) do |f| %>
+      <%= f.label :email %>
+      <%= f.email_field :email, class: "form-control",
+        id: "field1" %>
+      <%= f.label :password %>
+      <%= f.password_field :password, class: "form-control",
+        id: "field2" %>
+      <%= f.label :remember_me, class: "checkbox inline" do %>
+        <br>
+        <%= f.check_box :remember_me %>
+        <span>
+          <%= t "page.session.new.remember" %>
+        </span>
+      <% end %>
+      <br>
+      <%= f.submit t("page.session.new.signin"), class: "btn btn-primary"%>
+    <% end %>
+    <h5>
+      <%= t "page.session.new.newuser" %>
+      <%= link_to t("page.session.new.signupnow"), new_user_path %>
+    </h5>
+  </div>
+</div>
