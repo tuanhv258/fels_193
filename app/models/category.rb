@@ -1,4 +1,7 @@
 class Category < ActiveRecord::Base
+
+  include Sort
+
   has_many :lessons
   has_many :words
 

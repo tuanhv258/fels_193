@@ -1,5 +1,11 @@
 <div class="table-responsive">
-  <h2><%= t "category.word" %></h2>
+  <div class="row">
+    <h2 class="col-md-2"><%= t "category.word" %></h2>
+    <% if @current_user.is_admin? %>
+      <%= link_to t("category.createword"), new_admin_word_path,
+        class: "btn-info btn col-md-2 col-md-offset-7 createcate" %>
+    <% end %>
+  </div>
   <br>
   <table class="table table-striped edit">
     <thead>
@@ -12,42 +18,43 @@
     </thead>
     <tbody>
     <% @words.each_with_index do |word, index| %>
-        <tr>
-          <td><% if params[:page] ||= 1 %>
-                <%= index_plus index, Settings.categories_per_page %>
-            <% end %>
-          </td>
-          <td><%= word.name %></td>
-          <td><%= word.category.title %></td>
-          <td><button type="button" class="btn btn-info btn-md button-detail" data-toggle="modal"
-            data-target="#myModal_<%= word.id %>"><%= t "category.detail" %></button></td>
-        </tr>
-        <div class="modal fade" id="myModal_<%= word.id %>" role="dialog">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title"><%= t "category.detail" %></h4>
+      <tr>
+        <td>
+          <% if params[:page] ||= 1 %>
+            <%= index_for params[:page], index, Settings.categories_per_page %>
+          <% end %>
+        </td>
+        <td><%= word.name %></td>
+        <td><%= word.category.title %></td>
+        <td><button type="button" class="btn btn-info btn-md button-detail" data-toggle="modal"
+          data-target="#myModal_<%= word.id %>"><%= t "category.detail" %></button></td>
+      </tr>
+      <div class="modal fade" id="myModal_<%= word.id %>" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title"><%= t "category.detail" %></h4>
+            </div>
+            <div class="modal-body">
+              <div class="row text-left">
+                <p><%= t "category.id" %>: <%= word.id %></p>
               </div>
-              <div class="modal-body">
-                <div class="row text-left">
-                  <p><%= t "category.id" %>: <%= word.id %></p>
-                </div>
-                <div class="row text-left">
-                  <p><%= t "category.name" %>: <%= word.name %></p>
-                </div>
-                <div class="row text-left">
-                  <p><%= t "category.categoryName" %>:<%= word.category.title %></p>
-                </div>
-                <br>
+              <div class="row text-left">
+                <p><%= t "category.name" %>: <%= word.name %></p>
               </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">
-                  <%= t "category.close" %></button>
+              <div class="row text-left">
+                <p><%= t "category.categoryName" %>:<%= word.category.title %></p>
               </div>
+              <br>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">
+                <%= t "category.close" %></button>
             </div>
           </div>
         </div>
+      </div>
     <% end %>
     </tbody>
   </table>

@@ -1,0 +1,20 @@
+<%= form_for @word do |f| %>
+  <%=  render "shared/error_messages", object: @word %>
+  <%= f.label :name %>
+  <%= f.text_field :name, class: "form-control" %>
+  <%= f.label :category %>
+  <br>
+  <%= f.select :category_id, options_for_select(
+    @categories.collect{ |category| [category.title, category.id]},
+    class: "dropdown") %>
+  <div class="attachments">
+    <%= f.fields_for :word_answers do |t| %>
+      <%= render "word_answer_fields", f: t %>
+    <% end %>
+    <div class="new_answer">
+    </div>
+  </div>
+  <%= link_to_add_fields t("word.addmore"), f, :word_answers %><br/>
+  <br>
+  <%= f.submit t("signup.create"), class: "btn btn-success img-center" %>
+<% end %>
