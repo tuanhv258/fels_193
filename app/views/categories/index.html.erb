@@ -2,8 +2,10 @@
 
   <div class="row">
     <h2 class="col-md-2"><%= t "category.category" %></h2>
-    <input type="Submit" value = "<%= t "category.createcate" %>"
-      class="btn-info btn col-md-2 col-md-offset-7" id="createcate">
+    <% if @current_user.is_admin? %>
+      <%= link_to t("category.createcate"), new_category_path,
+        class: "btn-info btn col-md-2 col-md-offset-7 createcate" %>
+    <% end %>
   </div>
   <br>
   <table class="table table-striped edit">
@@ -19,7 +21,7 @@
     <% @categories.each_with_index do |category, index| %>
       <tr>
         <td><% if params[:page] ||= 1 %>
-          <%= index_plus index, Settings.categories_per_page %>
+          <%= index_for params[:page], index, Settings.categories_per_page %>
           <% end %>
         </td>
         <td><%= category.title %></td>

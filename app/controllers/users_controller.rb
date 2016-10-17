@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
+
   before_action :load_user, only: [:show, :edit, :update]
 
   def index
     @users = User.paginate(page: params[:page],
-      per_page: Settings.categories_per_page).order(created_at: "desc")
+      per_page: Settings.categories_per_page).sort_desc
   end
 
   def new

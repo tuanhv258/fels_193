@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+
+  include Sort
+
   has_many :lessons
   has_many :relationships
   has_many :activities

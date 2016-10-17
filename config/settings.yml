@@ -17,3 +17,6 @@ admin:
     image_size: 50
 words_in_each_lesson: 10
 number_word_require: 15
+answertimes: 4
+answer_default: 2
+max_answer: 4

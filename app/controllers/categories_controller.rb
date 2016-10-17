@@ -1,11 +1,12 @@
 class CategoriesController < ApplicationController
+
   before_action :load_category, only: [:edit, :update, :destroy]
   before_action :check_logged
 
   def index
     @category = Category.new
     @categories = Category.paginate(page: params[:page],
-      per_page: Settings.categories_per_page).order created_at: "desc"
+      per_page: Settings.categories_per_page).sort_desc
   end
 
   def new

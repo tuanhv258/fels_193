@@ -14,6 +14,7 @@ gem "jquery-rails", "4.1.1"
 gem "turbolinks", "5.0.1"
 gem "jbuilder", "2.4.1"
 gem "config"
+gem "i18n-js", ">= 3.0.0.rc11"
 
 group :development, :test do
   gem "sqlite3", "1.3.11"

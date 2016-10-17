@@ -128,3 +128,16 @@ en:
     areyou: "Are you sure to "
     deletedowncase: "delete"
     record: " this record?"
+    createword: "Create word"
+  word:
+    sucessful: "Create word successful"
+    addmore: "Add more word answers"
+    remove: "Remove"
+  validate:
+    answer: "Correct answer: "
+    0: "0"
+    size: "Answer size: "
+    condition: "greater than 2 and small than 4"
+  js:
+    max_answers : "Maximum 4 answers"
+    min_answers : "Minimum 2 answers"
