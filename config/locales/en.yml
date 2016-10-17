@@ -69,6 +69,7 @@ en:
       please: "Please Login"
     categoriescontroller:
       createsuccess: "Success"
+      createfail: "Fail"
       createdanger: "Wrong!"
     view:
       admin:
@@ -129,6 +130,7 @@ en:
     deletedowncase: "delete"
     record: " this record?"
     createword: "Create word"
+    nil: "Category is not exist"
   word:
     sucessful: "Create word successful"
     addmore: "Add more word answers"
