@@ -32,8 +32,8 @@ function add_fields(link, association, content) {
   }
 }
 
-$(document).ready(function(){
-  $('.radio_answer').change(function() {
+$('document').ready(function(){
+  $('.radio_answer').change(function (){
     $('.radio_answer').prop('checked', false);
     $(this).prop('checked', true);
   });
