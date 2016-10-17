@@ -76,8 +76,9 @@ en:
         id: "ID"
         name: "Name"
         option: "Options"
-        confirm: "You sure?"
+        confirm: "Are you sure?"
         delete: "Delete"
+        show: "Show list user"
       category:
         create: "Create Category"
     activity_create_lesson: " had created a lesson."

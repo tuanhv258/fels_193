@@ -1,23 +1,14 @@
-<h1 class="text-center">Sign in</h1>
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for(:session, url: login_path) do |f| %>
-      <%= f.label :email %>
-      <%= f.email_field :email, class: "form-control",
-       id: "field1" %>
-      <%= f.label :password %>
-      <%= f.password_field :password, class: "form-control",
-        id: "field2" %>
-      <%= f.label :remember_me, class: "checkbox inline" do %>
-        <%= f.check_box :remember_me %>
-        <span><%= t "page.session.new.remember" %></span>
-      <% end %>
-      <%= f.submit t("page.session.new.signin"),
-        class: "btn btn-primary"%>
-    <% end %>
-    <p>
-      <%= t "page.session.new.newuser" %>
-      <%= link_to t("page.session.new.signupnow"), "#" %>
-    </p>
+<div class="container-fluid background">
+  <div class="row centered-form">
+    <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title text-center"><%= t "page.header.signinitem" %></h3>
+        </div>
+        <div class="panel-body">
+          <%= render "users/login_form"%>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

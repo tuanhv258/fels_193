@@ -3,7 +3,8 @@
   <td><%= link_to user.fullname, user %></td>
   <td>
     <% if current_user.is_admin? && !user.current_user?(current_user) %>
-      <%= link_to t("page.view.admin.delete"), user, method: :delete,
+      <%= link_to "", user, class: "btn btn-danger btn-md
+        button-detail glyphicon glyphicon-remove", method: :delete,
         data: { confirm: t("page.view.admin.confirm") } %>
     <% end %>
   </td>

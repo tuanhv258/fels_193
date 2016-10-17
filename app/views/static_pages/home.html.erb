@@ -1,7 +1,8 @@
-<h2><strong><%= t "page.home.header" %></strong></h2>
+<h2>
+  <strong>
+    <%= t "page.home.header" %>
+  </strong>
+</h2>
 <p><%= t "page.home.welcome" %></p>
-<p>
-  <a class="btn btn-lg btn-primary" href="#" role="button">
-    <%= t "page.home.signup" %> &raquo;
-  </a>
-</p>
+<%= link_to t("page.home.signup"), new_user_path, class: "btn btn-lg btn-primary" %>
+
