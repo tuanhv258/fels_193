@@ -1,6 +1,14 @@
 en:
   hello: "Hello world"
   page:
+    create_succse_and_join_lesson: "Create Success"
+    lesson_create_fail: "Lesson Create Fail"
+    btn_start: "Start"
+    time:
+      formats:
+        short_datetime: "%B %d, %Y"
+        long_datetime:  "%B %d, %Y, at %r"
+    create_lesson: "Create Lesson"
     title: "Framgia E-Learning System"
     header:
       toggleitem: "Toggle navigation"
@@ -17,6 +25,7 @@ en:
       categoryitem: "Categories"
       showcategories: "Categories"
       createcategory: "Create Category"
+      lessons: "Lessons"
     home:
       header: "Framgia E-Learning System"
       welcome: "Online Tuition, specially tailored to you,
