@@ -133,6 +133,9 @@ en:
     sucessful: "Create word successful"
     addmore: "Add more word answers"
     remove: "Remove"
+    question: "Question"
+    answer: "Answer"
+    nil: "Word is not exist"
   validate:
     answer: "Correct answer: "
     0: "0"

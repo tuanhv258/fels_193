@@ -3,7 +3,7 @@
     <h2 class="col-md-2"><%= t "category.word" %></h2>
     <% if @current_user.is_admin? %>
       <%= link_to t("category.createword"), new_admin_word_path,
-        class: "btn-info btn col-md-2 col-md-offset-7 createcate" %>
+        class: "btn-info btn col-md-2 col-md-offset-7 createcate check-answer" %>
     <% end %>
   </div>
   <br>
@@ -26,8 +26,22 @@
         </td>
         <td><%= word.name %></td>
         <td><%= word.category.title %></td>
-        <td><button type="button" class="btn btn-info btn-md button-detail" data-toggle="modal"
-          data-target="#myModal_<%= word.id %>"><%= t "category.detail" %></button></td>
+        <td>
+          <% if @current_user.is_admin? %>
+            <button type="button" class="btn btn-success btn-md button-detail glyphicon
+              glyphicon-info-sign" data-toggle="modal" data-target="#myModal_<%= word.id %>">
+            </button>
+            <%= link_to "", edit_admin_word_path(word.id), class: "btn btn-info btn-md button-detail
+              glyphicon glyphicon-pencil" %>
+            <button type="button" class="btn btn-danger btn-md button-detail glyphicon
+              glyphicon-remove" data-toggle="modal" data-target="#myModal_delete_<%= word.id %>">
+            </button>
+          <% else %>
+            <button type="button" class="btn btn-info btn-md button-detail glyphicon
+              glyphicon-info-sign" data-toggle="modal" data-target="#myModal_<%= word.id %>">
+            </button>
+          <% end %>
+        </td>
       </tr>
       <div class="modal fade" id="myModal_<%= word.id %>" role="dialog">
         <div class="modal-dialog">
@@ -37,20 +51,59 @@
               <h4 class="modal-title"><%= t "category.detail" %></h4>
             </div>
             <div class="modal-body">
-              <div class="row text-left">
-                <p><%= t "category.id" %>: <%= word.id %></p>
-              </div>
-              <div class="row text-left">
-                <p><%= t "category.name" %>: <%= word.name %></p>
-              </div>
-              <div class="row text-left">
-                <p><%= t "category.categoryName" %>:<%= word.category.title %></p>
-              </div>
-              <br>
+              <blockquote>
+                <h3><%= t "word.question" %></h3>
+                <br>
+                <footer><%= word.name %></footer>
+              </blockquote>
+              <blockquote>
+                <h3><%= t "word.answer" %><br>
+                  <% word.word_answers.each do |word_answer|
+                    if word_answer.is_correct %>
+                      <br>
+                      <footer>
+                        <span class="label label-success btn-xs" %>
+                          <%= word_answer.content %>
+                        </span>
+                      </footer>
+                    <% else %>
+                      <br>
+                      <footer>
+                        <span class="label label-danger btn-xs" %>
+                          <%= word_answer.content %>
+                        </span>
+                      </footer>
+                    <% end %>
+                    <br/>
+                  <% end %>
+                </h3>
+              </blockquote>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">
+                <%= t "category.close" %>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="myModal_delete_<%= word.id %>" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title"><%= t "category.delete" %></h4>
+            </div>
+            <div class="modal-body">
+              <p><%= t "category.areyou" %><strong><%= t "category.deletedowncase" %>
+              </strong><%= t "category.record" %>
+              </p>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal">
                 <%= t "category.close" %></button>
+              <%= link_to t("category.delete"), admin_word_path(word.id),
+                method: :delete , class: "btn btn-danger" %>
             </div>
           </div>
         </div>
