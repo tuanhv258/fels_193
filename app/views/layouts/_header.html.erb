@@ -81,30 +81,8 @@
                 <% end %>
               </ul>
             </li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle"
-                data-toggle="dropdown"
-                role="button" aria-haspopup="true"
-                aria-expanded="false">
-                <%= t "page.header.categoryitem" %>
-                <span class="caret"></span>
-              </a>
-              <ul class="dropdown-menu">
-                <% unless @current_user.is_admin? %>
-                  <li>
-                    <%= link_to t("page.header.showcategories"), categories_path %>
-                  </li>
-                <% else %>
-                  <li>
-                    <%= link_to t("page.header.createcategory"),
-                      new_category_path %>
-                  </li>
-                  <li>
-                    <%= link_to t("page.header.showcategories"),
-                      categories_path %>
-                  </li>
-                <% end %>
-              </ul>
+            <li>
+              <%= link_to t("category.category"), categories_path %>
             </li>
             <li>
               <%= link_to t("category.word"), words_path %>

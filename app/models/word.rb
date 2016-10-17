@@ -8,7 +8,6 @@ class Word < ActiveRecord::Base
 
   validates :name, presence: true, length: {maximum: 255}
   validate :validate_answer
-
   accepts_nested_attributes_for :word_answers, allow_destroy: true,
     reject_if: proc{|attributes| attributes["content"].blank?}
   after_initialize :build_word_answers

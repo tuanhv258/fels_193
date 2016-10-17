@@ -53,7 +53,7 @@ class CategoriesController < ApplicationController
   def load_category
     @category = Category.find_by id: params[:id]
     unless @category
-      flash[:danger] = t "user.nil"
+      flash[:danger] = t "category.nil"
       render file: "public/404.html", status: :not_found, layout: true
     end
   end

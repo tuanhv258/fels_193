@@ -1,5 +1,5 @@
 <%= form_for [:admin, @word] do |f| %>
-  <%=  render "shared/error_messages", object: @word %>
+  <%= render "shared/error_messages", object: @word %>
   <%= f.label :name %>
   <%= f.text_field :name, class: "form-control" %>
   <%= f.label :category %>

@@ -1,7 +1,7 @@
 class Admin::WordsController < ApplicationController
   before_action :logged_in_user, :required_admin
-  before_action :load_categories, only: [:new, :create]
-  before_action :load_word, only: :destroy
+  before_action :load_categories, only: [:new, :create, :edit]
+  before_action :load_word, only: [:destroy, :edit, :update]
 
   def index
     @words = Word.paginate(page: params[:page],
@@ -24,6 +24,10 @@ class Admin::WordsController < ApplicationController
     end
   end
 
+  def edit
+
+  end
+
   def destroy
     if @word.destroy
       flash[:success] = t "category.deletesuccess"
@@ -32,7 +36,18 @@ class Admin::WordsController < ApplicationController
     end
     redirect_to :back
   end
-  
+
+  def update
+    @word.update_attributes word_params
+    if @word.save
+      flash[:success] = t "page.categoriescontroller.createsuccess"
+      redirect_to :back
+    else
+      flash[:success] = t "page.categoriescontroller.createfail"
+      redirect_to :back
+    end
+  end
+
   private
   def word_params
     params.require(:word).permit :name, :category_id,
@@ -50,5 +65,4 @@ class Admin::WordsController < ApplicationController
       render file: "public/404.html", status: :not_found, layout: true
     end
   end
-
 end

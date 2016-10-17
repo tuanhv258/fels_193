@@ -28,8 +28,8 @@
         <td><%= category.detail %></td>
         <td>
           <% unless @current_user.is_admin? %>
-            <button type="button" class="btn btn-success btn-md button-detail glyphicon
-            glyphicon-info-sign" data-toggle="modal" data-target="#myModal_<%= category.id %>">
+            <button type="button" class="btn btn-info btn-md button-detail glyphicon
+              glyphicon-info-sign" data-toggle="modal" data-target="#myModal_<%= category.id %>">
             </button>
           <% else %>
             <button type="button" class="btn btn-success btn-md button-detail glyphicon
