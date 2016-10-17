@@ -24,4 +24,8 @@ module ApplicationHelper
   def index_plus index, per_page
     (params[:page].to_i - 1) * per_page + 1 +index
   end
+
+  def index_for object, index, per_page
+    (object.to_i - 1)*per_page + index + 1
+  end
 end
