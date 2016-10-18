@@ -1,0 +1,19 @@
+<div class="lesson-details">
+  <h1><%= t "page.your_answers"%></h1>
+  <div class="your-answers">
+    <%= link_to t("page.link_back"), lessons_path, class: "btn btn-primary btn-new-word pull-left" %>
+    <div class="pull-right">
+      <p class="times-info"><%= @lesson.created_at.strftime(t"page.time.formats.long_datetime") %></p>
+      <p class="mark-title"><%= t "page.your_score" %></p>
+      <p class="mark-value"><%= @lesson.score %></p>
+    </div>
+    <div class="clear-fix"></div>
+    <%= form_for @lesson do |f| %>
+      <ol>
+        <%= f.fields_for :results do |builder| %>
+          <%= render "final_result", f: builder %>
+        <% end %>
+      </ol>
+    <% end %>
+  </div>
+</div>

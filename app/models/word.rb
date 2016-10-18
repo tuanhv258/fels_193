@@ -30,4 +30,5 @@ class Word < ActiveRecord::Base
       errors.add t("validate.size"), t("validate.condition")
     end
   end
+
 end
