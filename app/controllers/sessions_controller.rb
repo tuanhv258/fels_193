@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       log_in user
       params[:session][:remember_me] == "1" ? remember(user) : forget(user)
       flash[:success] = t "page.sessioncontroller.success"
-      redirect_to categories_path
+      user.is_admin? ? (redirect_to categories_path) : (redirect_to lessons_path)
     else
       flash[:danger] = t "page.sessioncontroller.danger"
       render :new

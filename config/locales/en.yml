@@ -143,9 +143,12 @@ en:
     question: "Question"
     answer: "Answer"
     nil: "Word is not exist"
+    search_placeholer: "Search"
+    filter: "Filter"
+
   validate:
     answer: "Correct answer: "
-    0: "0"
+    number: "0"
     size: "Answer size: "
     condition: "greater than 2 and small than 4"
   js:

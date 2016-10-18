@@ -6,7 +6,33 @@
         class: "btn-info btn col-md-2 col-md-offset-7 createcate check-answer" %>
     <% end %>
   </div>
-  <br>
+  <div class="space"> </div>
+  <div class="filter filter_padding">
+    <%= form_tag words_path, method: :get, id: "search-form" do %>
+      <div class="col-md-6">
+        <%= t "page.category.title" %>:
+        <%= select_tag( :category_id, options_for_select(@categories.collect{ |category|
+          [category.title, category.id]}, params[:category_id]),
+          include_blank: Settings.all, class: "form-group") %>
+        <% Settings.word_filter.each do |key, status| %>
+          <%= radio_button_tag :word_filter, status,
+            params[:word_filter] == status %>
+          <%= label_tag "page_word_filter", t("page.word.#{status}"),
+            class: "font-normal" %>
+        <% end %>
+      </div>
+      <div class="form-group col-md-6" >
+        <div class="col-xs-3"></div>
+        <div class="col-xs-5">
+          <%= text_field_tag :search, params[:search], class: "form-control",
+            placeholder: t("word.search_placeholer") %>
+        </div>
+        <div class="col-xs-3">
+          <%= submit_tag t("word.filter"), class: "btn btn-primary clear" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
   <table class="table table-striped edit">
     <thead>
     <tr>
@@ -52,31 +78,33 @@
             </div>
             <div class="modal-body">
               <blockquote>
-                <h3><%= t "word.question" %></h3>
-                <br>
-                <footer><%= word.name %></footer>
+                <h3>
+                  <%= t "word.question" %>
+                </h3>
+                <div class="clearfix"></div>
+                <footer>
+                  <%= word.name %>
+                </footer>
               </blockquote>
               <blockquote>
-                <h3><%= t "word.answer" %><br>
-                  <% word.word_answers.each do |word_answer|
-                    if word_answer.is_correct %>
-                      <br>
-                      <footer>
-                        <span class="label label-success btn-xs" %>
-                          <%= word_answer.content %>
-                        </span>
-                      </footer>
-                    <% else %>
-                      <br>
-                      <footer>
-                        <span class="label label-danger btn-xs" %>
-                          <%= word_answer.content %>
-                        </span>
-                      </footer>
-                    <% end %>
-                    <br/>
-                  <% end %>
+                <h3>
+                  <%= t "word.answer" %>
                 </h3>
+                <% word.word_answers.each do |word_answer|
+                  if word_answer.is_correct %>
+                    <footer>
+                      <span class="label label-success btn-xs" %>
+                        <%= word_answer.content %>
+                      </span>
+                    </footer>
+                  <% else %>
+                    <footer>
+                      <span class="label label-danger btn-xs" %>
+                        <%= word_answer.content %>
+                      </span>
+                    </footer>
+                  <% end %>
+                <% end %>
               </blockquote>
             </div>
             <div class="modal-footer">
@@ -96,7 +124,7 @@
             </div>
             <div class="modal-body">
               <p><%= t "category.areyou" %><strong><%= t "category.deletedowncase" %>
-              </strong><%= t "category.record" %>
+                </strong><%= t "category.record" %>
               </p>
             </div>
             <div class="modal-footer">
