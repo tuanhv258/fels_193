@@ -1,6 +1,10 @@
 en:
   hello: "Hello world"
   page:
+    your_score: "Your Score"
+    link_back: "Back"
+    your_answers: "Your Answers"
+    lesson_btn_submit: "Submit"
     create_succse_and_join_lesson: "Create Success"
     lesson_create_fail: "Lesson Create Fail"
     btn_start: "Start"

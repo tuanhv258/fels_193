@@ -22,6 +22,35 @@ class LessonsController < ApplicationController
     end
   end
 
+  def update
+    @lesson.is_complete = true
+    @lesson.update_attributes lesson_params
+    current_user.create_activity Activity.activity_types[:finished],
+      current_user.id
+    redirect_to lesson_path @lesson
+  end
+
+  def edit
+  end
+
+  def load_lesson
+    @lesson = Lesson.find_by id: params[:id]
+    unless @lesson
+      flash[:danger] = t "lesson_not_found"
+    end
+  end
+
+  def lesson_params
+    params.require(:lesson).permit :is_complete, results_attributes: [:id, :answer_id]
+  end
+
+  def authorize_user_lesson
+    unless current_user.current_user? @lesson.user
+      flash[:danger] =  t "authorize_user_lesson_err"
+      redirect_to root_url
+    end
+  end
+
   private
   def load_categories
     @categories = Category.all
